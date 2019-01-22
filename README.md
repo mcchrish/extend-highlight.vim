@@ -17,4 +17,4 @@ Plug 'mcchrish/extend-highlight.vim'
 :call extend_highlight#extend('TypeDef', 'ALEVirtualTextWarning', { '+gui': ['italic'] })
 ```
 
-Some other example: <link to dotfiles>
+Some other example: https://github.com/mcchrish/dotfiles/blob/master/vim/.config/nvim/plugins/ale.vim#L38-L44
