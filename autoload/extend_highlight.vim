@@ -1,4 +1,4 @@
-function! s:to_dict(colors)
+function! s:to_dict(colors) abort
   let l:colors_arr = split(a:colors)
   let l:colors_dict = {}
   for l:color in l:colors_arr
@@ -8,7 +8,7 @@ function! s:to_dict(colors)
   return l:colors_dict
 endfunction
 
-function! s:combine_highlight(base, add)
+function! s:combine_highlight(base, add) abort
   let l:result = ''
   for l:key in uniq(extend(keys(a:base), keys(a:add)))
     if has_key(a:add, l:key)
@@ -35,13 +35,11 @@ function! s:combine_highlight(base, add)
   return l:result
 endfunction
 
-function! extend_highlight#extend(base, group, add)
-  redir => basehi
-  sil! exe 'highlight' a:base
-  redir END
+function! extend_highlight#extend(base, group, add) abort
+  let l:basehi = execute('highlight '.a:base, 'silent!')
   let l:grphi = split(l:basehi, '\n')[0]
-  let l:grphi = substitute(l:grphi, '^'.a:base.'\s\+xxx', '', '')
+  let l:grphi = substitute(l:grphi, '^.*xxx\s', '', '')
   let l:grphi = <SID>to_dict(l:grphi)
   let l:grphi = <SID>combine_highlight(l:grphi, a:add)
-  sil exe 'highlight!' a:group l:grphi
+  silent execute 'highlight!' a:group l:grphi
 endfunction
