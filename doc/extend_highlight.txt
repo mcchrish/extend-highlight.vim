@@ -1,0 +1,19 @@
+*extend-highlight.vim* extend existing/replace highlight group
+*extend-highlight*
+
+=============================================================================
+Usage                                                  *extend-highlight-usage*
+                                                      *extend_highlight#extend*
+>
+  " ALEVirtualTextError will copy the highlights of Function then
+  " replaces/add 'gui' configuration
+  :call extend_highlight#extend('Function', 
+      \ 'ALEVirtualTextError', { 'gui': ['italic'] })
+
+  " Adding a + will append/add existing highlights instead of replace
+  :call extend_highlight#extend('TypeDef',
+      \ 'ALEVirtualTextWarning', { '+gui': ['italic'] })
+<
+
+=============================================================================
+vim:tw=78:ts=2:et:ft=help:norl:
