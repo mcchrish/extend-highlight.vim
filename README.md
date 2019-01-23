@@ -16,6 +16,7 @@ Plug 'mcchrish/extend-highlight.vim'
 " Adding a + will append/add existing highlights instead of replace
 :call extend_highlight#extend('TypeDef', 'ALEVirtualTextWarning', { '+gui': ['italic'] })
 ```
+**Note**: please see `:help extend-highlight` for complete manual.
 
 Some other example: https://github.com/mcchrish/dotfiles/blob/189c42107e6611923a06a9368a978266430b200c/vim/.config/nvim/plugin/colors.vim#L13-L25
 
