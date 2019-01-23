@@ -1,3 +1,8 @@
+if g:extend_highlight#loaded
+  finish
+endif
+let g:extend_highlight#loaded = 1
+
 if !(exists("g:extend_highlight#extend_list"))
   let g:extend_highlight#extend_list = []
 endif
