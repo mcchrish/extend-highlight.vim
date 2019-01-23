@@ -3,7 +3,7 @@
 
 =============================================================================
 Usage                                                  *extend-highlight-usage*
-                                                      *extend_highlight#extend*
+extend_highlight#extend({from}, {to}, {override})     *extend_highlight#extend*
 >
   " ALEVirtualTextError will copy the highlights of Function then
   " replaces/add 'gui' configuration
@@ -15,5 +15,18 @@ Usage                                                  *extend-highlight-usage*
       \ 'ALEVirtualTextWarning', { '+gui': ['italic'] })
 <
 
+                                               *g:extend_highlight#extend_list*
+
+An autocommand for |VimEnter| and |ColorScheme| will be registered and calls
+|extend_highlight#extend| for each item in this list. You can turn it off by
+setting *g:extend_highlight#register_autocmd* to 0.
+>
+  let g:extend_highlight#extend_list = [
+        \ ['Function', 'ALEVirtualTextError', { 'gui': ['italic'] }],
+        \ ['TypeDef', 'ALEVirtualTextWarning', { 'gui': ['italic'] }],
+        \ ['ErrorMsg', 'ALEError', { '+gui': ['italic'] }],
+        \ ['ErrorMsg', 'ALEWarning', { '+gui': ['italic'] }]
+        \ ]
+<
 =============================================================================
 vim:tw=78:ts=2:et:ft=help:norl:
