@@ -1,4 +1,4 @@
-if g:extend_highlight#loaded
+if exists('g:extend_highlight#loaded')
   finish
 endif
 let g:extend_highlight#loaded = 1
